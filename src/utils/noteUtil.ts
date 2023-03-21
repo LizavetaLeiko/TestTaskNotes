@@ -8,3 +8,8 @@ export const setNoteUtil = (note: INote) =>{
     localStorage.setItem('notes', JSON.stringify([note]));
   }
 }
+
+export const getNoteUtil = () =>{
+  const notes = localStorage.getItem('notes');
+  return notes ? JSON.parse(notes) : null;
+}

@@ -12,7 +12,7 @@ const Tags = () =>{
   }, [])
   
   return(
-    <div className='tags' style={{display: tags && tags.length > 0 ? 'flex' : 'none'}}>
+    <div className='tags' style={{display: tags ? 'flex' : 'none'}}>
       {
         tags?.map(item =>{
           return(

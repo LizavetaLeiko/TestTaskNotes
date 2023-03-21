@@ -10,6 +10,6 @@ export const setTagsUtil = (tags: Array<string>) =>{
 
 export const getTagsUtil = () =>{
   const tags = localStorage.getItem('tags')
-  return tags ? JSON.parse(tags) : [];
+  return tags ? JSON.parse(tags) : null;
 }
 
