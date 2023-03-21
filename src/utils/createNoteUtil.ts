@@ -1,12 +1,11 @@
 import INote from "../intefaces/iNote";
 
-const createNote = (note: INote) =>{
+const createNoteUtil = (note: INote) =>{
   const notes = localStorage.getItem('notes');
   if(notes){
-    const notesArr = JSON.parse(notes);
-    localStorage.setItem('notes', JSON.stringify([...notesArr, note]));
+    localStorage.setItem('notes', JSON.stringify([...JSON.parse(notes), note]));
   } else {
     localStorage.setItem('notes', JSON.stringify([note]));
   }
 }
-export default createNote;
+export default createNoteUtil;

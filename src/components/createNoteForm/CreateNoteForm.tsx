@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import createNote from '../../utils/createNoteUtil';
+import createNoteUtil from '../../utils/createNoteUtil';
+import setTagsUtil from '../../utils/setTagsUtil';
 import './styles/createNoteForm.sass'
 
 interface ICreateNoteForm{
@@ -22,7 +23,8 @@ const CreateNoteForm = (props: ICreateNoteForm) =>{
   }
 
   const handleCreateNote = ()=>{
-    createNote({title: title, description: desc, tags: tags})
+    createNoteUtil({title: title, description: desc, tags: tags})
+    setTagsUtil(tags)
   }
 
   return( <form action="addNote" className='form'>
