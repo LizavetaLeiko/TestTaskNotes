@@ -23,8 +23,10 @@ const CreateNoteForm = (props: ICreateNoteForm) =>{
   }
 
   const handleCreateNote = ()=>{
-    setNoteUtil({title: title, description: desc, tags: tags})
-    setTagsUtil(tags)
+    if(title && desc){
+      setNoteUtil({title: title, description: desc, tags: tags})
+      setTagsUtil(tags)
+    }
   }
 
   return( <form action="addNote" className='form'>
