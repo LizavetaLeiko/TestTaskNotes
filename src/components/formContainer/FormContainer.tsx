@@ -12,7 +12,7 @@ const FormContainer = () =>{
   return(
     <div className='container'>
       <button className='container__btn' onClick={handleVisability}>
-        <img src="../../assets/icons/row1.svg" alt=""/>
+        <img src="../../assets/icons/row.svg" alt=""/>
       </button>
       <CreateNoteForm isOpen={formIsOpen}/>
     </div>
