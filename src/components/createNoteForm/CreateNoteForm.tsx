@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import createNoteUtil from '../../utils/createNoteUtil';
-import setTagsUtil from '../../utils/setTagsUtil';
+import { setNoteUtil } from '../../utils/noteUtil';
+import { setTagsUtil } from '../../utils/tagsUtil';
 import './styles/createNoteForm.sass'
 
 interface ICreateNoteForm{
@@ -23,7 +23,7 @@ const CreateNoteForm = (props: ICreateNoteForm) =>{
   }
 
   const handleCreateNote = ()=>{
-    createNoteUtil({title: title, description: desc, tags: tags})
+    setNoteUtil({title: title, description: desc, tags: tags})
     setTagsUtil(tags)
   }
 

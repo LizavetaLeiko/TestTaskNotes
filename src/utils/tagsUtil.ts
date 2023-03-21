@@ -1,5 +1,5 @@
 
-const setTagsUtil = (tags: Array<string>) =>{
+export const setTagsUtil = (tags: Array<string>) =>{
   const tagsJson = localStorage.getItem('tags');
   if(tagsJson){
     localStorage.setItem('tags', JSON.stringify([...JSON.parse(tagsJson), ...tags]));
@@ -8,4 +8,8 @@ const setTagsUtil = (tags: Array<string>) =>{
   }
 }
 
-export default setTagsUtil;
+export const getTagsUtil = () =>{
+  const tags = localStorage.getItem('tags')
+  return tags ? JSON.parse(tags) : [];
+}
+
