@@ -6,13 +6,24 @@ import { getNoteUtil } from '../../utils/noteUtil';
 import NoteContainer from '../noteContainer/NoteContainer';
 import './styles/notesList.sass'
 
-const NotesList = () =>{
+
+interface INotesList{
+  filter: string
+}
+const NotesList = (props: INotesList) =>{
 
   const [notes, setNotes] = useState<Array<INote>>();
 
   useEffect(() =>{
-    setNotes(getNoteUtil())
-  }, [])
+    if(props.filter){
+      setNotes(getNoteUtil().filter((item: INote) => {
+        const tag = item.tags.filter((item: string) => item === props.filter)
+        return tag.length > 0 && item  
+      }))
+    } else{
+      setNotes(getNoteUtil())
+    }
+  }, [props.filter])
   
   return(
     <div className='notesList' style={{display: notes ? 'block' : 'none'}}>
