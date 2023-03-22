@@ -13,3 +13,10 @@ export const getTagsUtil = () =>{
   return tags ? JSON.parse(tags) : null;
 }
 
+export const deleteTagsUtil = (tags: Array<string>) =>{
+  const tagsJson = localStorage.getItem('tags')
+  if(tagsJson){
+    localStorage.setItem('tags', JSON.stringify(JSON.parse(tagsJson).filter((tag: string) => !tags.includes(tag))));
+  } 
+}
+

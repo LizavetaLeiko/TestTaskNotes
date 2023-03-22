@@ -21,7 +21,7 @@ const Tags = (props: ITags) =>{
         {
         tags?.map(item =>{
           return(
-            <button onClick={() => props.handleFilter(item)} key={uuidv4()}>{item}</button>
+            item && <button onClick={() => props.handleFilter(item)} key={uuidv4()}>{item}</button>
           )
         })
         }

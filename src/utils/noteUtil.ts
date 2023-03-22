@@ -26,3 +26,12 @@ export const changeNoteUtil = (note: INote) =>{
     )
   }
 }
+
+export const deleteNoteUtil = (id: string) =>{
+  const notes = localStorage.getItem('notes');
+  if(notes){
+    localStorage.setItem('notes', JSON.stringify(JSON.parse(notes).filter((item: INote)=>item.id !== id))
+    )
+  }
+  window.location.reload()
+}
