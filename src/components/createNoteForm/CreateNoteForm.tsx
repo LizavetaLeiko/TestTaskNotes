@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid'; 
 import { setNoteUtil } from '../../utils/noteUtil';
 import { setTagsUtil } from '../../utils/tagsUtil';
 import './styles/createNoteForm.sass'
@@ -24,7 +25,7 @@ const CreateNoteForm = (props: ICreateNoteForm) =>{
 
   const handleCreateNote = ()=>{
     if(title && desc){
-      setNoteUtil({title: title, description: desc, tags: tags})
+      setNoteUtil({title: title, description: desc, tags: tags, id: uuidv4() })
       setTagsUtil(tags)
     }
   }

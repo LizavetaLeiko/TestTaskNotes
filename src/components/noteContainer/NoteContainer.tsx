@@ -13,13 +13,19 @@ const NoteContainer = (props: INoteContainer) =>{
   const handleNoteIsOpen =()=>{
     setNoteIsOpen(!noteIsOpen)
   }
+
+  const [isEditable, setIsEditable] = useState<boolean>(false);
+
+  const handleIsEditable = () =>{
+    setIsEditable(!isEditable)
+    setNoteIsOpen(true)
+  }
   
   return(
     <div className='note' >
-        <h2 className='note__title' onClick={handleNoteIsOpen}>{props.note.title}</h2>
-        <NoteContent isOpen={noteIsOpen} desc={props.note.description} tags={props.note.tags}/>
+        <NoteContent isOpen={noteIsOpen} note={props.note} handleNoteIsOpen={handleNoteIsOpen} isEditable={isEditable}/>
         <div className='note__btns'>
-          <button><img src="../../assets/icons/edit.svg" alt=""/></button>
+          <button onClick={handleIsEditable}><img src="../../assets/icons/edit.svg" alt=""/></button>
           <button><img src="../../assets/icons/delete.svg" alt=""/></button>
         </div>
     </div>
