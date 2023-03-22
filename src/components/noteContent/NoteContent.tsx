@@ -43,7 +43,7 @@ const NoteContent = (props: INoteContent) =>{
         <div style={{display: props.isOpen ? 'block' : 'none'}}>
           {
             props.isEditable ?
-            <textarea className='note__desc__input' value={desc} onChange={handleDesc}/>
+            <textarea rows={7} className='note__desc__input' value={desc} onChange={handleDesc}/>
             :
             <p className='note__desc'>{props.note.description}</p>
           }

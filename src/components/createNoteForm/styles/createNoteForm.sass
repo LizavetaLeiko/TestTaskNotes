@@ -4,8 +4,14 @@
   flex-direction: column
   text-align: center
   gap: 20px
+  @media (max-width: 600px)
+    gap: 10px
+  @media (max-width: 400px)
+    text-align: left
   &__title
     font-size: 32px
+    @media (max-width: 600px)
+      font-size: 24px
   &__content
     width: 100%
     display: flex
@@ -15,9 +21,10 @@
   &__label
     font-size: 24px
     font-weight: 400
+    @media (max-width: 600px)
+      font-size: 18px
   &__text_input, &__textarea
     width: 100%
-    margin-bottom: 10px
     padding: 10px
     border-radius: 5px
     border: 2px #fff solid
@@ -25,6 +32,8 @@
     resize: none
     &:hover
       border: 2px #C293FE solid
+    @media (max-width: 600px)
+      padding: 7px
   &__btn
     cursor: pointer
     padding: 10px
@@ -42,5 +51,8 @@
       background-color: transparent
     &:active
       background-color: #C293FE
+    @media (max-width: 600px)
+      max-width: 150px
+      font-size: 14px
 
 

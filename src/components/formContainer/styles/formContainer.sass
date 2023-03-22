@@ -6,6 +6,11 @@
   border-radius: 10px
   text-align: right
   position: relative
+  @media (max-width: 900px)
+    width: 80%
+  @media (max-width: 600px)
+    width: 100%
+    padding: 15px 10px
   &__btn
     cursor: pointer
     position: absolute
@@ -14,3 +19,6 @@
     width: 50px
     height: 20px
     background-color: transparent
+    @media (max-width: 600px)
+      right: 15px
+      top: 18px
