@@ -25,8 +25,9 @@ const NotesList = (props: INotesList) =>{
   }, [props.filter])
   
   return(
-    <div className='notesList' style={{display: notes ? 'block' : 'none'}}>
+    <div className='notesList'>
       {
+        notes && notes?.length > 0 ? 
         notes?.map(item =>{
           return(
             <React.Fragment key={item.id}>
@@ -34,6 +35,8 @@ const NotesList = (props: INotesList) =>{
             </React.Fragment>
           )
         })
+        :
+        <p className='notesList__message'>There is no notes. <br/> You can create a new one!</p>
       }
     </div>
   )
