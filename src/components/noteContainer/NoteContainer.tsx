@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import INote from '../../intefaces/iNote';
+import deleteIcon from '../../assets/icons/delete.svg'
+import editIcon from '../../assets/icons/edit.svg'
 import { deleteNoteUtil } from '../../utils/noteUtil';
 import { deleteTagsUtil } from '../../utils/tagsUtil';
 import NoteContent from '../noteContent/NoteContent';
@@ -32,8 +34,8 @@ const NoteContainer = (props: INoteContainer) =>{
     <div className='note' >
         <NoteContent isOpen={noteIsOpen} note={props.note} handleNoteIsOpen={handleNoteIsOpen} isEditable={isEditable}/>
         <div className='note__btns'>
-          <button onClick={handleIsEditable}><img src="../../assets/icons/edit.svg" alt=""/></button>
-          <button onClick={()=>handleDeleteNote(props.note.id, props.note.tags)}><img src="../../assets/icons/delete.svg" alt=""/></button>
+          <button onClick={handleIsEditable}><img src={editIcon.toString()} alt=""/></button>
+          <button onClick={()=>handleDeleteNote(props.note.id, props.note.tags)}><img src={deleteIcon.toString()} alt=""/></button>
         </div>
     </div>
   )

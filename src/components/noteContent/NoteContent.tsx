@@ -14,16 +14,16 @@ interface INoteContent{
 const NoteContent = (props: INoteContent) =>{
 
   const [title, setTitle] = useState<string>(props.note.title);
-  const handleTitle = (e: React.ChangeEvent<HTMLInputElement>)=>{
-    setTitle(e.target.value)
-  }
   const [desc, setDesc] = useState<string>(props.note.description);
   const [tags, setTags] = useState<Array<string>>([]);
+  
   const handleDesc = (e: React.ChangeEvent<HTMLTextAreaElement>)=>{
     setDesc(e.target.value)
     setTags(e.target.value.split(' ').filter(item => item[0] === '#'))
   }
-
+  const handleTitle = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    setTitle(e.target.value)
+  }
   const changeCreateNote = ()=>{
     if(title && desc){
       changeNoteUtil({title: title, description: desc, tags: tags, id: props.note.id })
