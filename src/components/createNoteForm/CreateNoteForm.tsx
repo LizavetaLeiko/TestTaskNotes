@@ -23,7 +23,8 @@ const CreateNoteForm = (props: ICreateNoteForm) =>{
     setTags(tags)
   }
 
-  const handleCreateNote = ()=>{
+  const handleCreateNote = (e: any)=>{
+    e.preventDefault();
     if(title && desc){
       setNoteUtil({title: title, description: desc, tags: tags, id: uuidv4() })
       setTagsUtil(tags)
