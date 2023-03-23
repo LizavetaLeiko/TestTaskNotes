@@ -29,7 +29,7 @@ function App() {
   }, [filter])
 
   const handleAddNewNote = (note: INote)=>{
-    setNotes([...notes, note])
+    setNotes([note, ...notes])
   }
   const handleDeleteNote = (id: string)=>{
     setNotes(notes.filter((item: INote)=>item.id !== id))
