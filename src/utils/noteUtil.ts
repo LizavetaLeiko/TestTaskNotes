@@ -33,5 +33,4 @@ export const deleteNoteUtil = (id: string) =>{
     localStorage.setItem('notes', JSON.stringify(JSON.parse(notes).filter((item: INote)=>item.id !== id))
     )
   }
-  window.location.reload()
 }

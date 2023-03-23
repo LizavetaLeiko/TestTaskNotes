@@ -1,37 +1,24 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
 import INote from '../../intefaces/iNote';
-import { getNoteUtil } from '../../utils/noteUtil';
 import NoteContainer from '../noteContainer/NoteContainer';
 import './styles/notesList.sass'
 
 
 interface INotesList{
-  filter: string
+  filter: string,
+  notes: Array<INote> | null,
+  handleDeleteNote: (id: string) => void
 }
 const NotesList = (props: INotesList) =>{
-
-  const [notes, setNotes] = useState<Array<INote>>();
-
-  useEffect(() =>{
-    if(props.filter){
-      setNotes(getNoteUtil().filter((item: INote) => {
-        const tag = item.tags.filter((item: string) => item === props.filter)
-        return tag.length > 0 && item  
-      }))
-    } else{
-      setNotes(getNoteUtil())
-    }
-  }, [props.filter])
   
   return(
     <div className='notesList'>
       {
-        notes && notes?.length > 0 ? 
-        notes?.map(item =>{
+        props.notes && props.notes?.length > 0 ? 
+        props.notes?.map(item =>{
           return(
             <React.Fragment key={item.id}>
-              <NoteContainer note={item}/>
+              <NoteContainer note={item} handleDeleteNote={props.handleDeleteNote}/>
             </React.Fragment>
           )
         })

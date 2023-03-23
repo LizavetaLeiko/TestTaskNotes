@@ -8,7 +8,8 @@ import NoteContent from '../noteContent/NoteContent';
 import './styles/noteContainer.sass'
 
 interface INoteContainer{
-  note: INote
+  note: INote,
+  handleDeleteNote: (id: string) => void
 }
 const NoteContainer = (props: INoteContainer) =>{
 
@@ -28,6 +29,7 @@ const NoteContainer = (props: INoteContainer) =>{
   const handleDeleteNote=(id: string, tags: Array<string>)=>{
     deleteNoteUtil(id)
     deleteTagsUtil(tags)
+    props.handleDeleteNote(id)
   }
   
   return(
